@@ -1,0 +1,31 @@
+#!/bin/sh
+test $# -lt 1 && echo "Usage: $0 <dir|file>" && exit
+#egrep --exclude-dir .svn --include *.c --include *.cpp --include *.h --color -nHIRf risk_func_high.lst search_prj
+#tail  -n +$((LINENO+1)) $0 | egrep --exclude-dir .svn --exclude-dir .git --include *.c --include *.cpp --include *.h --color -nHIR -f- $@
+egrep --exclude-dir .svn --exclude-dir .git --include *.c --include *.cpp --include *.h --color -nHIR -f $0 ${@:-.};exit
+^\s*[^/]*\<gets\>\s*\(
+^\s*[^/]*\<_getws\>\s*\(
+^\s*[^/]*\<_getts\>\s*\(
+^\s*[^/]*\<strcpy\>\s*\(
+^\s*[^/]*\<lstrcpy\>\s*\(
+^\s*[^/]*\<lstrcpyA\>\s*\(
+^\s*[^/]*\<lstrcpyW\>\s*\(
+^\s*[^/]*\<wcscpy\>\s*\(
+^\s*[^/]*\<_tcscpy\>\s*\(
+^\s*[^/]*\<_ftcscpy\>\s*\(
+^\s*[^/]*\<StrCpy\>\s*\(
+^\s*[^/]*\<strcat\>\s*\(
+^\s*[^/]*\<wcscat\>\s*\(
+^\s*[^/]*\<_mbscat\>\s*\(
+^\s*[^/]*\<_tcscat\>\s*\(
+^\s*[^/]*\<StrCat\>\s*\(
+^\s*[^/]*\<StrCatA\>\s*\(
+^\s*[^/]*\<StrCatW\>\s*\(
+^\s*[^/]*\<sprintf\>\s*\(
+^\s*[^/]*\<wsprintf\>\s*\(
+^\s*[^/]*\<wsprintfA\>\s*\(
+^\s*[^/]*\<wsprintfW\>\s*\(
+^\s*[^/]*\<vsprintf\>\s*\(
+^\s*[^/]*\<vswprintf\>\s*\(
+^\s*[^/]*\<swprintf\>\s*\(
+^\s*[^/]*\<_stprintf\>\s*\(
